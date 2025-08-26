@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LocaDigital — Análise • Contrato • Cobrança</title>
+  <meta name="description" content="Assessoria + Administração de locações para pequenos e médios proprietários. Análise de documentação, contrato sob medida e cobrança via NIDO.">
+  <meta property="og:title" content="LocaDigital — Análise • Contrato • Cobrança">
+  <meta property="og:description" content="Análise de documentação, contrato sob medida e cobrança via NIDO.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --primary: #1A4D8C;
+      --accent: #3E92CC;
+      --slate:  #6B7B8C;
+      --ink:    #0F172A;
+      --muted:  #475569;
+      --bg:     #F6F9FC;
+      --card:   #FFFFFF;
+      --ring:   rgba(26,77,140,.15);
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(2,6,23,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px); background: rgba(246,249,252,.6); border-bottom: 1px solid #e5eef7; }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .brand { display:flex; align-items:center; gap: 12px; }
+    .brand svg { width: 160px; height: auto; }
+    .nav .cta { display:flex; gap:10px; align-items:center; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; border-radius: 999px; padding: 12px 18px; font-weight:600; border: 1px solid transparent; transition:.2s; cursor:pointer; }
+    .btn.whats { background: var(--primary); color: #fff; }
+    .btn.whats:hover { transform: translateY(-1px); box-shadow: 0 6px 24px var(--ring); }
+    .btn.outline { background: transparent; border-color: var(--primary); color: var(--primary); }
+    .btn.outline:hover { background: rgba(26,77,140,.06); }
+    .hero { padding: 64px 0 28px; background: radial-gradient(1200px 600px at 80% -10%, rgba(62,146,204,.12), transparent 60%), linear-gradient(180deg, #fff, #f7fbff); border-bottom: 1px solid #e5eef7; }
+    .hero-grid { display:grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items:center; }
+    h1 { font-size: clamp(28px, 3.4vw, 44px); line-height:1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 1.6vw, 18px); }
+    .pill { display:inline-flex; align-items:center; gap:8px; background: #ECF3FA; color: var(--primary); padding:8px 12px; border-radius: 999px; font-weight:600; margin-bottom: 14px; }
+    .hero .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; border: 1px solid #e5eef7; }
+    .check { color: var(--primary); font-weight:600; }
+    section { padding: 54px 0; }
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .item { background: var(--card); border-radius: var(--radius); border:1px solid #e5eef7; padding: 18px; box-shadow: var(--shadow); }
+    .item h3 { margin: 4px 0 8px; font-size: 18px; }
+    .item p { margin: 0; color: var(--muted); }
+    .list { display:grid; gap: 10px; margin: 12px 0 0; }
+    .list li { display:flex; gap:10px; align-items:flex-start; background: #fff; border:1px solid #e5eef7; padding: 12px 14px; border-radius: 12px; }
+    .list .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 6px; flex: 0 0 10px; }
+    .prices { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .price-card { background: var(--card); border:1px solid #e5eef7; border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+    .price { font-size: 36px; font-weight:800; color: var(--primary); margin: 6px 0; }
+    .small { color: var(--muted); font-size: 14px; }
+    form { display:grid; gap: 12px; }
+    .form-wrap { background: var(--card); border: 1px solid #e5eef7; box-shadow: var(--shadow); border-radius: var(--radius); padding: 18px; }
+    label { font-weight:600; font-size: 14px; }
+    input, select { width: 100%; padding: 12px 14px; border:1px solid #cfe0f4; border-radius: 12px; outline:none; font-size: 16px; }
+    input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); }
+    .faq { display:grid; gap: 10px; }
+    details { background: var(--card); border:1px solid #e5eef7; border-radius: 12px; padding: 12px 14px; }
+    summary { cursor:pointer; font-weight:600; color: var(--primary); }
+    footer { padding: 28px 0 56px; color: var(--muted); }
+    .lgpd { background: #fff; border:1px solid #e5eef7; border-radius: 12px; padding: 16px; }
+    .kicker { color: var(--slate); font-weight:700; letter-spacing:.08em; text-transform: uppercase; font-size: 12px; }
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3, .prices { grid-template-columns: 1fr; }
+      header { position: static; }
+      .brand svg { width: 140px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <!-- Inline logo -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+  <!-- Container for vertical organization -->
+  <g transform="translate(20, 20)">
+    <!-- House icon - refined shape -->
+    <path d="M0 25 L30 0 L60 25 L55 25 L55 55 L5 55 L5 25 Z" fill="#1A4D8C" />
+    
+    <!-- Windows with better proportions -->
+    <rect x="15" y="30" width="10" height="10" rx="1" fill="white" />
+    <rect x="35" y="30" width="10" height="10" rx="1" fill="white" />
+    
+    <!-- Door with slight arch -->
+    <path d="M25 55 L25 40 Q25 38 27 38 L33 38 Q35 38 35 40 L35 55 Z" fill="white" />
+    
+    <!-- Key icon with more sophisticated design, overlapping at perfect position -->
+    <g transform="translate(45, 40)">
+      <circle cx="6" cy="6" r="6" fill="#3E92CC" />
+      <rect x="6" y="5" width="15" height="2" fill="#3E92CC" />
+      <path d="M15 2 L15 10 L19 10 L19 7 L22 7 L22 10 L25 10 L25 2 Z" fill="#3E92CC" />
+    </g>
+  </g>
+  
+  <!-- Text "LocaDigital" with elegant serif font -->
+  <text x="95" y="55" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#1A4D8C">LocaDigital</text>
+  
+  <!-- Subtle tagline -->
+  <text x="95" y="70" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#6B7B8C">Gestão de Locações</text>
+</svg>
+      </div>
+      <div class="cta">
+        <a href="#form" class="btn outline">Quero ser atendido</a>
+        <a id="whats-top" class="btn whats" href="https://wa.me/YOUR_WHATSAPP?text=Ol%C3%A1%21%20Quero%20ajuda%20da%20LocaDigital%20com%20minha%20loca%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill">Análise • Contrato • Cobrança</div>
+          <h1>Assessoria + Administração para locar seu imóvel com segurança</h1>
+          <p class="subtitle">Nós cuidamos da análise de documentos, criamos a minuta de contrato e administramos a cobrança via NIDO. Você foca no essencial: seu imóvel e o próximo inquilino.</p>
+          <div style="display:flex; gap:12px; margin-top:18px;">
+            <a class="btn whats" id="whats-hero" href="https://wa.me/YOUR_WHATSAPP?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Assessoria%20%2B%20Administra%C3%A7%C3%A3o%20da%20LocaDigital.%20Podemos%20conversar%3F" target="_blank" rel="noopener">Começar pelo WhatsApp</a>
+            <a class="btn outline" href="#como-funciona">Ver como funciona</a>
+          </div>
+          <p class="small" style="margin-top:10px;">MVP: serviço manual e personalizado. Cobrança e recibos pelo NIDO.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Incluso no plano</div>
+          <ul class="list">
+            <li><span class="dot"></span><div><strong>Análise de documentação</strong> (locador, locatário e garantias)</div></li>
+            <li><span class="dot"></span><div><strong>Minuta de contrato</strong> sob medida (modelo LocaDigital)</div></li>
+            <li><span class="dot"></span><div><strong>Configuração no NIDO</strong> para <em>PIX</em>/boleto, recibos e repasses</div></li>
+            <li><span class="dot"></span><div><strong>Checklist</strong> para vistoria e entrega de chaves</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+      <div class="container">
+        <h2>Como funciona</h2>
+        <div class="grid-3" style="margin-top:12px;">
+          <div class="item">
+            <div class="kicker">Passo 1</div>
+            <h3>Cadastro e briefing</h3>
+            <p>Envie seus dados e do imóvel pelo formulário ou WhatsApp.</p>
+          </div>
+          <div class="item">
+            <div class="kicker">Passo 2</div>
+            <h3>Análise + minuta</h3>
+            <p>Revisamos a documentação e preparamos o contrato com as cláusulas essenciais.</p>
+          </div>
+          <div class="item">
+            <div class="kicker">Passo 3</div>
+            <h3>Assinatura + cobrança</h3>
+            <p>Acompanhamos assinatura e ativamos a cobrança pelo NIDO com recibos e repasses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O QUE ESTÁ INCLUSO -->
+    <section id="incluso">
+      <div class="container">
+        <h2>O que está incluso</h2>
+        <ul class="list" style="margin-top:14px;">
+          <li><span class="dot"></span><div>Checklist de <strong>documentos</strong> (RG/CPF, comprovantes, renda, garantias)</div></li>
+          <li><span class="dot"></span><div><strong>Minuta de locação</strong> residencial ou comercial com campos editáveis</div></li>
+          <li><span class="dot"></span><div><strong>Configuração NIDO</strong> (cadastro, emissão de cobranças, geração de recibos)</div></li>
+          <li><span class="dot"></span><div><strong>Repasses</strong> ao locador conforme contrato</div></li>
+          <li><span class="dot"></span><div><strong>Canal WhatsApp</strong> para suporte durante a vigência</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PREÇOS -->
+    <section id="precos">
+      <div class="container">
+        <h2>Preços simples e alinhados ao seu resultado</h2>
+        <div class="prices" style="margin-top:14px;">
+          <div class="price-card">
+            <div class="kicker">Taxa de sucesso</div>
+            <div class="price">30%</div>
+            <div class="small">Somente se a locação for concluída (incide sobre o 1º aluguel). Sem exclusividade.</div>
+          </div>
+          <div class="price-card">
+            <div class="kicker">Administração</div>
+            <div class="price">5%/mês</div>
+            <div class="small">Sobre os aluguéis recebidos. Inclui cobrança via NIDO, recibos e repasses.</div>
+          </div>
+        </div>
+        <p class="small" style="margin-top:10px;">Ex.: aluguel de R$ 3.000 ⇒ taxa de sucesso R$ 900 (uma vez) + administração R$ 150/mês.</p>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section id="form">
+      <div class="container">
+        <h2>Comece agora</h2>
+        <div class="form-wrap">
+          <form id="leadForm">
+            <div class="grid-3">
+              <div>
+                <label for="nome">Nome</label>
+                <input id="nome" name="nome" placeholder="Seu nome" required>
+              </div>
+              <div>
+                <label for="whats">WhatsApp</label>
+                <input id="whats" name="whats" placeholder="(11) 9 9999-9999" required>
+              </div>
+              <div>
+                <label for="email">E-mail</label>
+                <input id="email" type="email" name="email" placeholder="voce@exemplo.com" required>
+              </div>
+            </div>
+            <div class="grid-3" style="margin-top:10px;">
+              <div>
+                <label for="cidade">Cidade</label>
+                <input id="cidade" name="cidade" placeholder="São Paulo/SP" required>
+              </div>
+              <div>
+                <label for="aluguel">Aluguel desejado (R$)</label>
+                <input id="aluguel" name="aluguel" inputmode="numeric" placeholder="3.000" required>
+              </div>
+              <div>
+                <label for="origem">Como nos conheceu?</label>
+                <select id="origem" name="origem">
+                  <option>Instagram</option>
+                  <option>TikTok</option>
+                  <option>Indicação</option>
+                  <option>Google</option>
+                </select>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px; margin-top:16px;">
+              <button class="btn whats" type="submit">Enviar e falar no WhatsApp</button>
+              <a class="btn outline" href="https://wa.me/YOUR_WHATSAPP?text=Quero%20um%20or%C3%A7amento%20para%20locar%20meu%20im%C3%B3vel." target="_blank" rel="noopener">Só WhatsApp</a>
+            </div>
+            <p class="small">Ao enviar, vamos abrir seu WhatsApp com os dados pré-preenchidos. Nenhum dado é compartilhado sem seu consentimento.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <div class="faq" style="margin-top:12px;">
+          <details>
+            <summary>Preciso de exclusividade?</summary>
+            <div class="small">Não. Você pode continuar anunciando por conta própria ou com outros canais. A taxa de sucesso só é cobrada se concluirmos a locação.</div>
+          </details>
+          <details>
+            <summary>Vocês atendem locação residencial e comercial?</summary>
+            <div class="small">Sim. A minuta é ajustada conforme o tipo de imóvel e a realidade da negociação.</div>
+          </details>
+          <details>
+            <summary>Quais garantias aceitam?</summary>
+            <div class="small">Trabalhamos com caução, fiador e seguro-fiança. A documentação é conferida no passo de análise.</div>
+          </details>
+          <details>
+            <summary>Como funcionam as cobranças pelo NIDO?</summary>
+            <div class="small">Configuramos o cadastro e as cobranças no NIDO para emissão via PIX/boletos, geração de recibos e repasses ao locador.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- LGPD -->
+    <section id="lgpd">
+      <div class="container">
+        <h2>Política de Privacidade (LGPD) — resumo</h2>
+        <div class="lgpd small">
+          <p><strong>Controlador:</strong> LocaDigital.</p>
+          <p><strong>Dados coletados:</strong> nome, WhatsApp, e-mail, cidade e informações do imóvel.</p>
+          <p><strong>Finalidade:</strong> atendimento comercial e execução do serviço de assessoria e administração de locações.</p>
+          <p><strong>Base legal:</strong> consentimento e execução de contrato (Lei nº 13.709/2018).</p>
+          <p><strong>Compartilhamento:</strong> somente com parceiros necessários à prestação do serviço (ex.: NIDO), quando estritamente indispensável.</p>
+          <p><strong>Retenção:</strong> pelo tempo necessário ao atendimento e cumprimento de obrigações legais.</p>
+          <p><strong>Direitos do titular:</strong> confirmação, acesso, correção, exclusão e portabilidade. Para exercer, contate <a href="mailto:contato@locadigital.com.br">contato@locadigital.com.br</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap: wrap;">
+        <div>© 2025 LocaDigital. Todos os direitos reservados.</div>
+        <div class="small">Tagline: Análise • Contrato • Cobrança</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Substitua pelo seu número com DDI/DDD, ex: 5511999999999
+    const WHATS_NUMBER = 'YOUR_WHATSAPP';
+    for (const a of document.querySelectorAll('a[href*="wa.me/YOUR_WHATSAPP"]')) {
+      a.href = a.href.replace('YOUR_WHATSAPP', WHATS_NUMBER);
+    }
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const whats = document.getElementById('whats').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const cidade = document.getElementById('cidade').value.trim();
+      const aluguel = document.getElementById('aluguel').value.trim();
+      const origem = document.getElementById('origem').value;
+      const texto = `Olá! Meu nome é ${nome}.
+Quero usar a LocaDigital (Assessoria + Administração).
+Cidade: ${cidade} | Aluguel desejado: R$ ${aluguel}.
+Contato: ${whats} | ${email}.
+Origem: ${origem}.`;
+      const url = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
