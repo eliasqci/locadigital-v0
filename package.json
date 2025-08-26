@@ -1,0 +1,13 @@
+{
+  "name": "locadigital",
+  "version": "1.0.0",
+  "description": "LocaDigital - Assessoria e Administração de Locações",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Build complete - static HTML ready'",
+    "start": "echo 'Open index.html in your browser'"
+  },
+  "keywords": ["locacao", "imoveis", "administracao"],
+  "author": "LocaDigital",
+  "license": "ISC"
+}
